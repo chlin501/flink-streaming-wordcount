@@ -16,3 +16,9 @@ libraryDependencies ++= Seq (
 //logLevel := Level.Debug
 
 scalacOptions += "-deprecation"
+
+mainClass in assembly := Some("org.example.App")
+
+run in Compile <<= Defaults.runTask(fullClasspath in Compile, mainClass in (Compile, run), runner in (Compile, run))
+
+assemblyOption in assembly := (assemblyOption in assembly).value.copy(includeScala = false)
