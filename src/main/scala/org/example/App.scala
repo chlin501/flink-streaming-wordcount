@@ -35,7 +35,8 @@ class App {
     // write intResult to zk so consumer side can check within its own 
     // accumulator, which is global within the job being executed.
     // when a consumer (thread) finds after its execution reaching the 
-    // total count found at zk, then write to zk so procuder can start 
+    // total count found at zk, then the consumer writes to zk and stop 
+    // consumer side job. The procuder side that watches the zk can start 
     // the next job/ step.
   }
 }
